@@ -1,0 +1,17 @@
+﻿
+
+@model  Nibo.Prova.Asp.Web.Presentation.Models.Upload.ProcessingErrorViewModel
+
+@{
+    ViewData["Title"] = "InvalidExtension";
+}
+
+<h1>Ocorreram alguns erros</h1>
+
+
+@foreach (var description in Model.Errors)
+{
+    <ol>
+        <li>@description</li>
+    </ol>
+}

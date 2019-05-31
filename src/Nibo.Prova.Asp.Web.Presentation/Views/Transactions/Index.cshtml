@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Nibo.Prova.Asp.Web.Presentation.Application.Queries.Transactions.HistoricalTransactionViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Data de publicação</th>
+            <th scope="col">Valor</th>
+            <th scope="col">Tipo de Transação</th>
+            <th scope="col">Descrição da Transação</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td scope="row">@item.DatePosted</td>
+                <td scope="row">@item.TransAmount</td>
+                <td scope="row">@item.TypeDescription</td>
+                <td scope="row">@item.Memo</td>
+            </tr>
+        }
+    </tbody>
+</table>
