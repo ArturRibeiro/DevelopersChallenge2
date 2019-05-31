@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Nibo.Prova.Domain.Models.Transactions;
@@ -15,29 +14,16 @@ namespace Nibo.Prova.Infrastructure
         public DbSet<Transaction> Transactions { get; set; }
 
         public async Task<bool> SaveEntitiesAsync(CancellationToken cancellationToken)
-        {
-            try
-            {
-                return await base.SaveChangesAsync() > 0;
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-        }
+            => await base.SaveChangesAsync() > 0;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.EnableSensitiveDataLogging();
-            // ...
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new TransactionConfigurations());
-
-            
         }
     }
 }
