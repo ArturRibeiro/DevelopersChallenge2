@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -14,7 +13,7 @@ using Nibo.Prova.Domain.Models.Transactions.Repository;
 namespace Nibo.Prova.Asp.Web.Presentation.Application.CommandHandlers.Transactions
 {
     public class TransactionCommandHandler
-        : IRequestHandler<PrecessFileOFXCommand, bool>
+        : IRequestHandler<PrecessFileOfxCommand, bool>
     {
         private readonly ITransactionRepository _transactionRepository;
         private readonly IMediator _mediator;
@@ -33,7 +32,7 @@ namespace Nibo.Prova.Asp.Web.Presentation.Application.CommandHandlers.Transactio
         /// <param name="message">Message assigned to the command handler</param>
         /// <param name="cancellationToken">Spreads the notification that transactions should be canceled.</param>
         /// <returns></returns>
-        public async Task<bool> Handle(PrecessFileOFXCommand message, CancellationToken cancellationToken)
+        public async Task<bool> Handle(PrecessFileOfxCommand message, CancellationToken cancellationToken)
         {
             if ( await ProcessFiles(message.Files, cancellationToken))
                 await _mediator.Publish(DeleteAllFilesEvent.Factory.Create(message.Files));

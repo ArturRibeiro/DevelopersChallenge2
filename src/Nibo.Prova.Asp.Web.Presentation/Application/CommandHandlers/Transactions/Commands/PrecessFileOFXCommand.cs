@@ -2,7 +2,7 @@
 
 namespace Nibo.Prova.Asp.Web.Presentation.Application.CommandHandlers.Transactions.Commands
 {
-    public class PrecessFileOFXCommand : IRequest<bool>
+    public class PrecessFileOfxCommand : IRequest<bool>
     {
         /// <summary>
         /// Files for processing
@@ -12,8 +12,8 @@ namespace Nibo.Prova.Asp.Web.Presentation.Application.CommandHandlers.Transactio
         #region Factory
         public static class Factory
         {
-            public static PrecessFileOFXCommand Create(string[] files)
-                => new PrecessFileOFXCommand()
+            public static PrecessFileOfxCommand Create(string[] files)
+                => new PrecessFileOfxCommand()
                 {
                     Files = files
                 };

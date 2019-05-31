@@ -1,5 +1,4 @@
-﻿using System.IO;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 using Nibo.Prova.Asp.Web.Presentation.Application.EventHandlers.Transactions.Events;

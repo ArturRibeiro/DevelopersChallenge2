@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -70,7 +69,7 @@ namespace Nibo.Prova.Asp.Web.Presentation.Controllers
                         await formFile.CopyToAsync(stream);
                 }
             }
-            catch (Exception ex)
+            catch
             {
                 return false;
             }
@@ -83,7 +82,7 @@ namespace Nibo.Prova.Asp.Web.Presentation.Controllers
         {
             var originOfTheImport = Directory.GetFiles($@"{_hostingEnvironment.ContentRootPath}\Ofx", "*.ofx",
                 SearchOption.TopDirectoryOnly);
-            return await _mediator.Send(PrecessFileOFXCommand.Factory.Create(originOfTheImport));
+            return await _mediator.Send(PrecessFileOfxCommand.Factory.Create(originOfTheImport));
         }
 
         private string[] GetNotifications()
