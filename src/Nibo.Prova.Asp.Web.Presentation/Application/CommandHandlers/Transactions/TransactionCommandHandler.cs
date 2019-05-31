@@ -58,10 +58,8 @@ namespace Nibo.Prova.Asp.Web.Presentation.Application.CommandHandlers.Transactio
 
                 await _transactionRepository.UnitOfWork
                     .SaveEntitiesAsync(cancellationToken);
-
-                await _mediator.Publish(DomainNotification.Factory.Create("There was an error persisting the files"));
             }
-            catch(Exception ex)
+            catch
             {
                 await _mediator.Publish(DomainNotification.Factory.Create("There was an error persisting the files"));
             }
