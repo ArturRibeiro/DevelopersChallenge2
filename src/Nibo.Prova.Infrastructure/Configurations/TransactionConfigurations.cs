@@ -20,8 +20,8 @@ namespace Nibo.Prova.Infrastructure.Configurations
                 .HasColumnName("DatePosted")
                 .IsRequired();
 
-            builder.Property(x => x.TransAmount)
-                .HasColumnName("TransAmount")
+            builder.Property(x => x.Amount)
+                .HasColumnName("Amount")
                 .HasMaxLength(90)
                 .IsRequired();
 

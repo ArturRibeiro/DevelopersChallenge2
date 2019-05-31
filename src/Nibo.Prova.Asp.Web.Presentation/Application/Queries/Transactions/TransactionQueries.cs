@@ -24,11 +24,12 @@ namespace Nibo.Prova.Asp.Web.Presentation.Application.Queries.Transactions
                 return await connection.QueryAsync<HistoricalTransactionViewModel>
                 (
                     sql: @"SELECT DISTINCT
-                                 DatePosted
-                                , TransAmount
-                                , Memo
-                                , [Type]
-                           FROM [dbo].[transactions] Order By DatePosted"
+                                  Id
+                                  , DatePosted
+                                  , Amount
+                                  , Memo
+                                  , [Type]
+                           FROM [dbo].[transactions] Order By 1"
                 );
             }
         }

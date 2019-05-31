@@ -9,10 +9,7 @@ namespace Nibo.Prova.Domain.Models.Transactions
         #region Constructors
 
         //TODO: Constructor necessary for EF 
-        public Transaction()
-        {
-
-        }
+        public Transaction() { }
 
         internal Transaction(DateTime datePosted, string transAmount, string memo, TransactionType transactionType)
         {
@@ -20,32 +17,31 @@ namespace Nibo.Prova.Domain.Models.Transactions
             if (datePosted == DateTime.MaxValue) throw new ArgumentNullException(nameof(datePosted));
             if (transAmount == null) throw new ArgumentNullException(nameof(transAmount));
             if (memo == null) throw new ArgumentNullException(nameof(memo));
-            //if (transactionType == TransactionType.Undefined) throw new ArgumentNullException(nameof(transactionType));
-
+            
             this.Id = 0;
             this.DatePosted = datePosted;
-            this.TransAmount = transAmount;
+            this.Amount = transAmount;
             this.Memo = memo;
             this.TransactionType = transactionType;
-        } 
+        }
         #endregion
 
         #region Properties
 
         /// <summary>
-        /// 
+        /// Post Date
         /// </summary>
         public DateTime DatePosted { get; private set; }
 
 
         /// <summary>
-        /// 
+        /// Amount
         /// </summary>
-        public string TransAmount { get; private set; }
+        public string Amount { get; private set; }
 
 
         /// <summary>
-        /// 
+        /// Memo
         /// </summary>
         public string Memo { get; private set; }
 
@@ -59,10 +55,5 @@ namespace Nibo.Prova.Domain.Models.Transactions
                 => new Transaction(datePosted, transAmount, memo, transactionType);
         }
         #endregion
-
-        public void UpdateMemo(string memo)
-        {
-            this.Memo = memo;
-        }
     }
 }

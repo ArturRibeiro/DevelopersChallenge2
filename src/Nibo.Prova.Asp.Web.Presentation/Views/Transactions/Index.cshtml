@@ -9,6 +9,7 @@
 <table class="table table-striped">
     <thead>
         <tr>
+            <th scope="col" style="width: 5%;" align="center"></th>
             <th scope="col">Data de publicação</th>
             <th scope="col">Valor</th>
             <th scope="col">Tipo de Transação</th>
@@ -19,8 +20,9 @@
         @foreach (var item in Model)
         {
             <tr>
+                <td scope="row" align="center">@item.Id</td>
                 <td scope="row">@item.DatePosted</td>
-                <td scope="row">@item.TransAmount</td>
+                <td scope="row">@item.Amount</td>
                 <td scope="row">@item.TypeDescription</td>
                 <td scope="row">@item.Memo</td>
             </tr>
